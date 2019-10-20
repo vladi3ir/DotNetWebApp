@@ -11,5 +11,6 @@ namespace Assessment5a.Models
         public string Name { get; set; }
         [RegularExpression(@"(?i)(^\s*open sesame\s*$)")]
         public string Pasword { get; set; }
+        public int LengthOfName { get; set; }
     }
 }

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Assessment5a.Models;
+﻿using Assessment5a.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace Assessment5a.Controllers
 {
@@ -17,13 +14,16 @@ namespace Assessment5a.Controllers
         public IActionResult Welcome(MainViewModel model)
         {
             if (!ModelState.IsValid)
-            // if (!userInfo.Name.Equals("Rob", StringComparison.OrdinalIgnoreCase))
             {
 
-                return View("Error", new ErrorViewModel() { Message = "Invalid name we are looking for you're boy rob" });
+                return View("Error", new ErrorViewModel() { Message = "password" });
             }
 
-            return View(model);
+            var updateModel = new MainViewModel();
+            updateModel.Name = model.Name.ToUpper();
+            updateModel.LengthOfName = model.Name.Length;
+
+            return View(updateModel);
         }
     }
 }
